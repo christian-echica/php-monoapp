@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  web-server:
+    build:
+      dockerfile: php.Dockerfile
+      context: .
+    restart: always
+    ports:
+      - "8080:80"
+  mysql-server:
+    build:
+      dockerfile: mysql.Dockerfile
+      context: .
+    command: --max_allowed_packet=67108864
+    restart: always
